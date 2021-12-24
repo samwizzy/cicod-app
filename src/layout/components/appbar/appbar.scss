@@ -5,20 +5,23 @@
   font-size: 0.8rem;
   min-height: 40px;
   max-height: 100%;
-  nav {
-    margin: 0;
-    padding: 0;
-  }
 }
 
 .navbar {
-  display: flex;
-  justify-content: flex-end;
-  color: #fff;
-  box-sizing: border-box;
-  padding: 0 1rem;
+  margin: 0;
+  padding: 0;
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 0 1rem;
+  }
   li {
     height: 40px;
+    &:not(:last-child) {
+      border-right: 1px solid #263238;
+    }
   }
   a {
     display: block;

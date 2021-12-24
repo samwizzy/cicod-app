@@ -66,7 +66,7 @@ function Sidebar() {
         className="search"
       />
 
-      <nav>
+      <nav className="sidenav">
         <ul>
           {data.slice(0, limit).map((repo) => (
             <li key={repo.id} onClick={(e) => handleClick(e, repo.id)}>
