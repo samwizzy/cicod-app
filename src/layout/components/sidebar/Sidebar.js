@@ -11,7 +11,6 @@ function Sidebar() {
   const [searchText, setsearchText] = useState("");
   const [limit, setLimit] = useState(10);
   const repos = useSelector(({ repository }) => repository.repos);
-  const selectedRepo = useSelector(({ repository }) => repository.selectedRepo);
 
   const seeMore = (e) => {
     e.preventDefault();
