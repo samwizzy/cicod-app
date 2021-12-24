@@ -114,7 +114,9 @@ code {
 
 .submit-btn {
   display: flex;
+  text-align: center;
   align-items: center;
+  justify-content: center;
   color: #fff;
   margin: 2rem 0 0;
   font-size: 1rem;
@@ -126,7 +128,7 @@ code {
   border: 1px solid #238636;
   cursor: pointer;
   svg,
-  span:last-child {
+  span:nth-child(2) {
     color: #fff;
     margin-left: 4px;
   }
