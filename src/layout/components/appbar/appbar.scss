@@ -1,0 +1,25 @@
+.appbar {
+  position: fixed;
+  top: 0;
+  background-color: #161b22;
+  font-size: 0.8rem;
+  min-height: 40px;
+  max-height: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  li {
+    height: 40px;
+  }
+  a {
+    display: block;
+    padding: 0.8rem;
+    text-decoration: none;
+    color: rgb(218, 213, 213);
+  }
+}

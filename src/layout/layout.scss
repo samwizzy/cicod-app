@@ -1,0 +1,85 @@
+.layout {
+  display: flex;
+}
+
+.h2 {
+  color: #f4f9f6;
+  font-weight: 700;
+}
+
+.navigation {
+  width: 20%;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 2rem;
+  background-color: #0d1117;
+  box-sizing: border-box;
+  color: #c9d1d9;
+}
+
+.search {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0 1rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.9rem;
+  border: 1px solid #424442;
+  outline: none;
+  &:focus {
+    outline: 3px solid #2979ff;
+    border: 1px solid #2962ff;
+    opacity: 0.5;
+  }
+  ::placeholder {
+    color: #ccc;
+    opacity: 1;
+  }
+  :-ms-input-placeholder {
+    color: #ccc;
+  }
+  ::-ms-input-placeholder {
+    color: #ccc;
+  }
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  background-color: #238636;
+  outline: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid #238636;
+  cursor: pointer;
+  svg {
+    color: #fff;
+    margin-right: 4px;
+  }
+}
+
+.more {
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: rgb(223, 215, 215);
+}
+
+.content {
+  padding: 2rem;
+}
+
+/** media query **/
+@media screen and (max-width: 640px) {
+  .layout {
+    display: block;
+  }
+  .navigation {
+    width: 100%;
+    height: 100%;
+  }
+}
