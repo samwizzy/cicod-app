@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { getRepoById, getReposAsync } from "@/store/reducers/repository.slice";
 import { useDispatch, useSelector } from "react-redux";
-import _ from "lodash";
+// import _ from "lodash";
 import { MdOutlineCollectionsBookmark } from "react-icons/md";
 import "./sidebar.scss";
 
@@ -45,8 +45,6 @@ function Sidebar() {
     e.preventDefault();
     dispatch(getRepoById(id));
   };
-
-  console.log(selectedRepo, "selectedRepo");
 
   return (
     <React.Fragment>
