@@ -42,7 +42,10 @@ function Profile() {
 
   return (
     <div>
-      <h2 className="text-lg font-bold mb-1">{user?.name} Github profile</h2>
+      <h2 className="text-lg mb-1">
+        <span className=" font-bold">Update profile form</span> — Github (
+        {user?.name})
+      </h2>
 
       <div className={clsx("success font-bold", { error: status.code })}>
         {status.message}

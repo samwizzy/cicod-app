@@ -41,7 +41,7 @@ const profileSlice = createSlice({
     builder.addCase(updateUserAsync.rejected, (state, action) => {
       state.loading = false;
       state.status.code = false;
-      state.status.message = "Profile updated failed";
+      state.status.message = "Profile update failed";
     });
   },
 });
