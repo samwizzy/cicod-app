@@ -79,7 +79,7 @@ function Sidebar() {
         </ul>
       </nav>
 
-      {limit !== repos.length && (
+      {limit !== repos.length && repos.length > 0 && (
         <a href="/#" className="more" onClick={seeMore}>
           see more
         </a>
