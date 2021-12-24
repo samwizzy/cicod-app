@@ -113,6 +113,7 @@ code {
 
 .submit-btn {
   display: flex;
+  align-items: center;
   color: #fff;
   margin: 2rem 0 0;
   font-size: 1rem;
@@ -123,14 +124,25 @@ code {
   outline: none;
   border: 1px solid #238636;
   cursor: pointer;
-  svg {
+  svg,
+  span:last-child {
     color: #fff;
-    margin-right: 4px;
+    margin-left: 4px;
   }
+}
+
+/** statuses **/
+.error {
+  color: #d32f2f;
+}
+.success {
+  margin-bottom: 1rem;
+  color: #238636;
 }
 
 /** table **/
 .table {
+  min-width: 50%;
   border: 1px solid #e0e0e0;
   border-collapse: collapse;
   tr {

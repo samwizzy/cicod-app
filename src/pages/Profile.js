@@ -1,9 +1,14 @@
-import { getUserAsync, updateProfile } from "@/store/reducers/profile.slice";
+import {
+  getUserProfile,
+  updateUserAsync,
+} from "@/store/reducers/profile.slice";
 import React from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { ClipLoader } from "react-spinners";
+import clsx from "clsx";
 
 const defaultValues = {
   name: "",
@@ -13,17 +18,13 @@ const defaultValues = {
 
 function Profile() {
   const dispatch = useDispatch();
-  const user = useSelector(({ profile }) => profile.user);
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    reset,
-    formState: { errors },
-  } = useForm({ defaultValues });
+  const { user, loading, status } = useSelector(({ profile }) => profile);
+  const { register, handleSubmit, setValue, reset } = useForm({
+    defaultValues,
+  });
 
   useEffect(() => {
-    dispatch(getUserAsync());
+    dispatch(getUserProfile());
   }, [dispatch]);
 
   useEffect(() => {
@@ -35,16 +36,17 @@ function Profile() {
   }, [user, setValue]);
 
   const onSubmit = (data) => {
-    dispatch(updateProfile(data));
+    dispatch(updateUserAsync(data));
     reset(null);
   };
-
-  console.log(errors, "errors");
-  console.log(user, "user");
 
   return (
     <div>
       <h2 className="text-lg font-bold mb-1">{user?.name} Github profile</h2>
+
+      <div className={clsx("success font-bold", { error: status.code })}>
+        {status.message}
+      </div>
 
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
         <div>
@@ -79,7 +81,8 @@ function Profile() {
         </div>
 
         <button type="submit" className="submit-btn">
-          Update
+          <span>Update</span>
+          {loading && <ClipLoader size={16} color="#4CAF50" />}
         </button>
       </form>
     </div>

@@ -7,7 +7,7 @@ function Home() {
 
   return (
     <div>
-      <h2 className="text-lg font-bold mb-1">My Github account</h2>
+      <h2 className="text-lg font-bold mb-1">My Repository details</h2>
       <div>
         <table className="table">
           <tbody>

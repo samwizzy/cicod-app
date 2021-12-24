@@ -3,10 +3,16 @@ import axios from "axios";
 
 const user = process.env.REACT_APP_USER;
 
-export const getUserAsync = createAsyncThunk("user/id", async () => {
-  return await axios.get(`/users/${user}`).then((res) => {
-    return res.data;
-  });
+export const updateUserAsync = createAsyncThunk("user/update", async (data) => {
+  return await axios
+    .patch(`/user`, data, {
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
+      },
+    })
+    .then((res) => {
+      return res.data;
+    });
 });
 
 const profileSlice = createSlice({
@@ -14,39 +20,38 @@ const profileSlice = createSlice({
   initialState: {
     loading: false,
     user: null,
+    status: { message: "", code: null },
   },
   reducers: {
-    updateUser: (state, action) => {
+    getUserDetails: (state, action) => {
       state.user = action.payload;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getUserAsync.pending, (state, action) => {
+    builder.addCase(updateUserAsync.pending, (state) => {
       state.loading = true;
+      state.status.code = null;
     });
-    builder.addCase(getUserAsync.fulfilled, (state, action) => {
+    builder.addCase(updateUserAsync.fulfilled, (state, action) => {
       state.loading = false;
       state.user = action.payload;
+      state.status.code = true;
+      state.status.message = "Profile updated successfully";
     });
-    builder.addCase(getUserAsync.rejected, (state, action) => {
+    builder.addCase(updateUserAsync.rejected, (state, action) => {
       state.loading = false;
+      state.status.code = false;
+      state.status.message = "Profile updated failed";
     });
   },
 });
 
-export const { updateUser } = profileSlice.actions;
+export const { getUserDetails } = profileSlice.actions;
 
-export const updateProfile = (data) => async (dispatch) => {
-  await axios
-    .patch(`/user`, data, {
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-      },
-    })
-    .then((res) => {
-      console.log(res.data, "res.data");
-      dispatch(updateUser(res.data));
-    });
+export const getUserProfile = (data) => async (dispatch) => {
+  await axios.get(`/users/${user}`, data).then((res) => {
+    dispatch(getUserDetails(res.data));
+  });
 };
 
 export default profileSlice.reducer;

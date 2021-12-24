@@ -42,7 +42,8 @@ nav {
   border: 1px solid #424442;
   outline: none;
   &:focus {
-    outline: 3px solid #424442;
+    outline: 3px solid #2979ff;
+    border: 1px solid #2962ff;
     opacity: 0.5;
   }
   ::placeholder {

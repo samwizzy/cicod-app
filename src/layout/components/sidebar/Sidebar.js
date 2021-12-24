@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { getRepoById, getReposAsync } from "@/store/reducers/repository.slice";
 import { useDispatch, useSelector } from "react-redux";
-// import _ from "lodash";
 import { MdOutlineCollectionsBookmark } from "react-icons/md";
+import _ from "lodash";
 import "./sidebar.scss";
 
 function Sidebar() {
@@ -32,9 +32,13 @@ function Sidebar() {
     }
   }, [repos, searchText]);
 
+  const delayedQuery = _.debounce(searchInput, 1000);
+
   useEffect(() => {
-    searchInput();
-  }, [searchInput]);
+    delayedQuery();
+
+    return delayedQuery.cancel;
+  }, [searchText, delayedQuery]);
 
   const handleChange = (e) => {
     setsearchText(e.target.value);
