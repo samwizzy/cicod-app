@@ -10,7 +10,9 @@ nav {
   li {
     display: flex;
     align-items: center;
-    border: 1px solid rgb(10, 10, 10);
+    &:not(:last-child) {
+      border-right: 1px solid #263238;
+    }
   }
   a {
     display: block;
