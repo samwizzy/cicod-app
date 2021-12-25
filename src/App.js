@@ -7,6 +7,7 @@ import store from "./store";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const Profile = React.lazy(() => import("./pages/Profile"));
+const Repository = React.lazy(() => import("./pages/Repository"));
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="profile" element={<Profile />} />
+                <Route path="repository" element={<Repository />} />
               </Routes>
             </BrowserRouter>
           </Layout>

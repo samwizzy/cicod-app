@@ -12,7 +12,7 @@ function Layout({ children }) {
         <Sidebar />
       </aside>
 
-      <main className="flex-1 content">{children}</main>
+      <main className="content">{children}</main>
     </div>
   );
 }

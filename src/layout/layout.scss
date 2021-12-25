@@ -10,10 +10,12 @@
   background-color: #0d1117;
   box-sizing: border-box;
   color: #c9d1d9;
+  flex-shrink: 0;
 }
 
 .content {
   padding: 2rem;
+  flex-grow: 1;
 }
 
 /** media query **/
