@@ -1,5 +1,12 @@
 @import "./styles/normalize.scss";
 
+:root {
+  --sidebar-color: #0d1117;
+  --appbar-color: #161b22;
+  --text-color: #c9d1d9;
+  --btn-color: #238636;
+}
+
 html {
   padding-top: 40px;
 }
@@ -123,9 +130,9 @@ code {
   font-weight: 700;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  background-color: #238636;
+  background-color: var(--btn-color);
   outline: none;
-  border: 1px solid #238636;
+  border: 1px solid var(--btn-color);
   cursor: pointer;
   svg,
   span:nth-child(2) {

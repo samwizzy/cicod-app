@@ -1,14 +1,14 @@
 .appbar {
   position: fixed;
   top: 0;
-  background-color: #161b22;
+  background-color: var(--appbar-color);
   font-size: 0.8rem;
   min-height: 40px;
   max-height: 100%;
 }
 
 .logo {
-  color: #c9d1d9;
+  color: var(--text-color);
   display: flex;
   align-items: center;
   img {
